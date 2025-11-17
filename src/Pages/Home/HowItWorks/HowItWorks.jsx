@@ -30,7 +30,7 @@ const HowItWorks = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4'>
                 {infos.map((info, i) => <div key={i} className='p-8 flex justify-start flex-col gap-4 bg-white rounded-3xl shadow'>
                     <img src={info.icon} className='w-12 h-12' />
-                    <h5 className='text-xl font-bold'>{info.title}</h5>
+                    <h5 className='text-xl font-bold text-secondary'>{info.title}</h5>
                     <p className='text-accent'>{info.description}</p>
                 </div>)}
             </div>

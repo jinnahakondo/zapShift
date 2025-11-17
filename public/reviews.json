@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "user_email": "rahimuddin@gmail.com",
+    "userName": "Rahim Uddin",
+    "delivery_email": "delivery.rider01@fastdrop.com",
+    "ratings": 4.8,
+    "review": "Excellent delivery! The rider was fast and handled the parcel carefully.",
+    "parcel_id": "PARCEL-10234",
+    "pick_up_email": "shop.gulshanmart@gmail.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/32.jpg",
+    "date": "2025-11-16T10:30:00Z",
+    "role": "Verified Customer"
+  },
+  {
+    "id": 2,
+    "user_email": "sultana.akter22@gmail.com",
+    "userName": "Sultana Akter",
+    "delivery_email": "delivery.rider05@fastdrop.com",
+    "ratings": 4.5,
+    "review": "Groceries were delivered on time and everything was fresh.",
+    "parcel_id": "PARCEL-20455",
+    "pick_up_email": "groceryhub.banani@gmail.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/45.jpg",
+    "date": "2025-11-15T18:45:00Z",
+    "role": "Grocery Buyer"
+  },
+  {
+    "id": 3,
+    "user_email": "mehedihasan88@gmail.com",
+    "userName": "Mehedi Hasan",
+    "delivery_email": "delivery.rider09@fastdrop.com",
+    "ratings": 5,
+    "review": "Fast parcel delivery! Reached within 20 minutes.",
+    "parcel_id": "PARCEL-30999",
+    "pick_up_email": "courierpoint.mirpur@gmail.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/75.jpg",
+    "date": "2025-11-14T12:10:00Z",
+    "role": "Parcel Sender"
+  },
+  {
+    "id": 4,
+    "user_email": "jannatul.f@gmail.com",
+    "userName": "Jannatul Ferdous",
+    "delivery_email": "delivery.rider03@fastdrop.com",
+    "ratings": 4.2,
+    "review": "Food was warm and well-packed. Rider was friendly.",
+    "parcel_id": "PARCEL-45561",
+    "pick_up_email": "foodcafe.dhanmondi@gmail.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/women/22.jpg",
+    "date": "2025-11-13T19:20:00Z",
+    "role": "Food Customer"
+  },
+  {
+    "id": 5,
+    "user_email": "azizrahman77@gmail.com",
+    "userName": "Azizur Rahman",
+    "delivery_email": "delivery.rider11@fastdrop.com",
+    "ratings": 5,
+    "review": "Very professional service. Parcel arrived safely without any damage.",
+    "parcel_id": "PARCEL-55672",
+    "pick_up_email": "techstore.uttara@gmail.com",
+    "user_photoURL": "https://randomuser.me/api/portraits/men/12.jpg",
+    "date": "2025-11-12T16:55:00Z",
+    "role": "Regular User"
+  }
+]

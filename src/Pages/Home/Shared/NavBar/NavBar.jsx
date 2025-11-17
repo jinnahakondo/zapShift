@@ -6,7 +6,7 @@ import Arrow from '../../../../assets/arrowIcon.png';
 const NavBar = () => {
     const links = <>
         <li><NavLink to={''}>Services</NavLink></li>
-        <li><NavLink to={''}>Coverage</NavLink></li>
+        <li><NavLink to={'/covarage'}>Coverage</NavLink></li>
         <li><NavLink to={''}>About Us</NavLink></li>
         <li><NavLink to={''}>Pricing</NavLink></li>
         <li><NavLink to={''}>Blog</NavLink></li>
@@ -26,7 +26,7 @@ const NavBar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl "><Logo /></a>
+                    <span className="btn btn-ghost text-xl "><Logo /></span>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-medium text-base text-accent">

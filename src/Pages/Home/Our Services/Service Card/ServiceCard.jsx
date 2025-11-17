@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
             <div className=' p-6 rounded-full bg-base-200'>
                 <img src={service.icon} className='w-12 h-12 ' />
             </div>
-            <h5 className='text-xl font-bold'>{service.title}</h5>
+            <h5 className='text-xl font-bold text-secondary'>{service.title}</h5>
             <p className='text-accent'>{service.description}</p>
         </div>
     );

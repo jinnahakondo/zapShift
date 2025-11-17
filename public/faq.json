@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "question": "What is ZapShift?",
+        "answer": "ZapShift is a fast and reliable delivery service platform where you can send parcels, track orders, and connect with trusted delivery partners in real time."
+    },
+    {
+        "id": 2,
+        "question": "How do I create an account on ZapShift?",
+        "answer": "Sign up using your email or Google account. Provide basic information and start sending parcels instantly."
+    },
+    {
+        "id": 3,
+        "question": "How do I book a delivery?",
+        "answer": "Go to 'Send Parcel', enter pickup and delivery details, parcel size/weight, and confirm the request. A rider will be assigned automatically."
+    },
+    {
+        "id": 4,
+        "question": "Can I track my parcel in real time?",
+        "answer": "Yes, ZapShift provides live parcel tracking so you can check delivery status anytime."
+    },
+    {
+        "id": 5,
+        "question": "How much does delivery cost?",
+        "answer": "Charges depend on distance, parcel size, and service speed. The final price is shown before confirming the order."
+    },
+    {
+        "id": 6,
+        "question": "How long does delivery take?",
+        "answer": "Fast deliveries take 30–90 minutes depending on your area and traffic conditions."
+    },
+    {
+        "id": 7,
+        "question": "Can I cancel my delivery?",
+        "answer": "Yes, you can cancel before the delivery partner picks up your parcel. After pickup, cancellation rules may apply."
+    },
+    {
+        "id": 8,
+        "question": "What items are not allowed?",
+        "answer": "Illegal items, explosives, alcohol, chemicals, valuable jewelry, or cash are not allowed."
+    },
+    {
+        "id": 9,
+        "question": "How do I contact support?",
+        "answer": "Go to the Help & Support section in the app to chat or email support."
+    },
+    {
+        "id": 10,
+        "question": "Is my information safe?",
+        "answer": "Yes, your data is encrypted and fully protected."
+    },
+    {
+        "id": 11,
+        "question": "Can I become a delivery partner?",
+        "answer": "Yes! Apply from the 'Become a Rider' section and complete the verification process."
+    },
+    {
+        "id": 12,
+        "question": "Does ZapShift operate 24/7?",
+        "answer": "In most areas, ZapShift operates from 8 AM to 11 PM depending on rider availability."
+    },
+    {
+        "id": 13,
+        "question": "How do I rate a delivery partner?",
+        "answer": "After delivery, you can rate and review the rider from the order details page."
+    },
+    {
+        "id": 14,
+        "question": "Does ZapShift offer Cash on Delivery?",
+        "answer": "Yes, COD is available for selected orders and merchants."
+    },
+    {
+        "id": 15,
+        "question": "Can I schedule a delivery?",
+        "answer": "Yes, you can schedule a parcel for a future date and time."
+    }
+]
