@@ -25,7 +25,7 @@ const Featurs = () => {
             {
                 featurs.map(f => <div key={f.title} className='bg-white rounded-4xl flex flex-col md:flex-row items-center p-6 h-full'>
                     {/* left side  */}
-                    <div className=' max-lg:border-b lg:border-r border-dashed'>
+                    <div className=' max-md:border-b md:border-r mb-5 border-dashed'>
                         <img src={f.photo} className='p-6 ' />
                     </div>
                     {/* right side  */}

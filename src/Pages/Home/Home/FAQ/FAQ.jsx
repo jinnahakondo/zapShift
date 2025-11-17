@@ -1,4 +1,4 @@
-import React, { use, useEffect } from 'react';
+import React, { use } from 'react';
 
 const FAQ = ({ faqPromise }) => {
     const faqs = use(faqPromise)
