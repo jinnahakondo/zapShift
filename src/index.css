@@ -17,6 +17,10 @@ body {
   background-color: #EAECED;
 }
 
+a.active {
+  @apply bg-primary rounded-lg
+}
+
 /* background color #EAECED */
 /* section bg color white  */
 /* --color-primary: #CAEB66; for button and hover

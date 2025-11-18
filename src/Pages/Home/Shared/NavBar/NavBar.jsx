@@ -2,16 +2,30 @@ import React from 'react';
 import Logo from '../../../../Components/Logo/Logo';
 import { Link, NavLink } from 'react-router';
 import Arrow from '../../../../assets/arrowIcon.png';
+import useAuth from '../../../../Hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const NavBar = () => {
+    const { loading, user, logOut } = useAuth()
+    const handelLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success("log out successfully")
+            })
+            .catch(error => toast.error(error.code))
+    }
     const links = <>
-        <li><NavLink to={''}>Services</NavLink></li>
+        <li><NavLink to={'/services'}>Services</NavLink></li>
         <li><NavLink to={'/covarage'}>Coverage</NavLink></li>
-        <li><NavLink to={''}>About Us</NavLink></li>
-        <li><NavLink to={''}>Pricing</NavLink></li>
-        <li><NavLink to={''}>Blog</NavLink></li>
-        <li><NavLink to={''}>Contact</NavLink></li>
+        <li><NavLink to={'/about'}>About Us</NavLink></li>
+        <li><NavLink to={'/send-parcel'}>Send a parcel</NavLink></li>
+        <li><NavLink to={'/be-a-rider'}>Be a Rider</NavLink></li>
+        {/* <li><NavLink to={''}>Blog</NavLink></li>
+        <li><NavLink to={''}>Contact</NavLink></li> */}
     </>
+
+    if (loading) return <p>loading...</p>
+
     return (
         <div className='pt-7'>
             <div className="navbar bg-white shadow-sm border border-[#DADADA] p-6 rounded-2xl">
@@ -34,11 +48,17 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-3">
-                    <Link className="btn bg-white border  border-[#DADADA] text-accent rounded-2xl font-bold  lg:text-xl">Sign In</Link>
-                    <div className='flex items-center'>
-                        <Link className="btn btn-primary text-black rounded-2xl font-bold  lg:text-xl">Sign up</Link>
-                        <img src={Arrow} className='w-10 h-10 ' />
-                    </div>
+                    {user ?
+                        <button onClick={handelLogOut} className="btn btn-primary border  border-[#DADADA] text-accent rounded-2xl font-bold  lg:text-xl">Sign out</button>
+                        :
+                        <>
+                            <Link to={'/login'} className="btn btn-primary border  border-[#DADADA] text-accent rounded-2xl font-bold  lg:text-xl">Sign In</Link>
+                            {/* <div className='flex items-center'>
+                                <Link className="btn btn-primary text-black rounded-2xl font-bold  lg:text-xl">Sign up</Link>
+                                <img src={Arrow} className='w-10 h-10 ' />
+                            </div> */}
+                        </>
+                    }
                 </div>
             </div>
         </div>

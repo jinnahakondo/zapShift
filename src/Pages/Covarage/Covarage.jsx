@@ -1,6 +1,4 @@
 import React, { useRef } from 'react';
-import NavBar from '../Home/Shared/NavBar/NavBar';
-import Footer from '../Home/Shared/Footer/Footer';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import { useLoaderData } from 'react-router';
@@ -22,9 +20,6 @@ const Covarage = () => {
     }
     return (
         <div className='max-w-7xl mx-auto space-y-20 px-4'>
-            <header>
-                <NavBar />
-            </header>
             <main >
                 <div className='my-10'>
                     <form onSubmit={handelSearch}>
@@ -67,10 +62,6 @@ const Covarage = () => {
                     </MapContainer>
                 </div>
             </main>
-            <footer>
-                <Footer />
-            </footer>
-
         </div>
     );
 };
