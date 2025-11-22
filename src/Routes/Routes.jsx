@@ -8,6 +8,11 @@ import Register from "../Pages/Auth/Register";
 import BeARider from "../Pages/Be A Rider/BeARider";
 import PrivateRoutes from "./PrivateRoutes";
 import SendPercel from "../Pages/Send Percel/SendPercel";
+import MyParcel from "../Pages/DashBoard/MyParcel/MyParcel";
+import DashBoardLayout from "../Layout/DashBoardLayout";
+import Payment from "../Pages/DashBoard/Payment/Payment";
+import PaymentSuccess from "../Pages/DashBoard/Payment/PaymentSuccess";
+import PaymentCancel from "../Pages/DashBoard/Payment/PaymentCancel";
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +39,8 @@ export const router = createBrowserRouter([
                 path: '/send-parcel',
                 element: <PrivateRoutes>
                     <SendPercel />
-                </PrivateRoutes>
+                </PrivateRoutes>,
+                loader: () => fetch('./warehouses.json')
             },
             {
                 path: '/be-a-rider',
@@ -63,5 +69,28 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard',
+        element: <PrivateRoutes>
+            <DashBoardLayout />
+        </PrivateRoutes>,
+        children: [
+            {
+                path: 'my-parcels',
+                Component: MyParcel
+            }, {
+                path: 'payment/:payment_id',
+                Component: Payment
+            }
+            , {
+                path: 'payment-success',
+                Component: PaymentSuccess
+            }
+            , {
+                path: 'payment-canceld',
+                Component: PaymentCancel
+            }
+        ]
+    }
 
 ])

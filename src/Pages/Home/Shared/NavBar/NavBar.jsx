@@ -20,8 +20,10 @@ const NavBar = () => {
         <li><NavLink to={'/about'}>About Us</NavLink></li>
         <li><NavLink to={'/send-parcel'}>Send a parcel</NavLink></li>
         <li><NavLink to={'/be-a-rider'}>Be a Rider</NavLink></li>
-        {/* <li><NavLink to={''}>Blog</NavLink></li>
-        <li><NavLink to={''}>Contact</NavLink></li> */}
+        {user &&
+            <li><NavLink to={'/dashboard'}>DashBoard</NavLink></li>
+        }
+
     </>
 
     if (loading) return <p>loading...</p>

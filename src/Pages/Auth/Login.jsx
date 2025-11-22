@@ -10,22 +10,22 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm()
 
     const location = useLocation()
+    const from = location.state || '/'
 
-    const { login, setLoading } = useAuth()
+    const { login, setLoading, user } = useAuth()
 
     const navigate = useNavigate()
 
     const handelLogin = (data) => {
         login(data.email, data.password)
             .then(() => {
-                setLoading(false)
-
-                navigate(location.state || '/')
-
                 toast.success("logged in successfully")
+                navigate(from)
             })
-            .catch(error => toast.error(error.code))
+            .catch(error => console.log(error.code))
     }
+
+    if (user) return navigate(from)
 
     return (
         <div className='max-w-[450px] '>

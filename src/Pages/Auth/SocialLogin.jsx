@@ -7,20 +7,16 @@ const SocialLogin = () => {
     const { googleSignin, setLoading } = useAuth()
 
     const location = useLocation()
-    console.log(location.state);
+
 
     const navigate = useNavigate()
 
     const handelLogin = () => {
-        googleSignin()
-            .then(() => {
-                setLoading(false)
-
-                toast.success("logged in successfully")
-
-                navigate(location.state || '/')
-            })
-            .catch(error => toast.error(error.code))
+        googleSignin().then(() => {
+            toast.success("logged in successfully")
+            navigate(location.state || '/')
+        })
+            .catch(error => console.log(error.code))
     }
     return (
         <div className='w-full'>

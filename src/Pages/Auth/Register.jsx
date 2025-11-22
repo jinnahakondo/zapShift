@@ -15,6 +15,8 @@ const Register = () => {
 
     const location = useLocation();
 
+    console.log(location);
+
     const navigate = useNavigate()
 
     const handelLogin = (data) => {
@@ -31,7 +33,6 @@ const Register = () => {
 
                 axios.post(image_Api, formData)
                     .then(res => {
-                        setLoading(false)
 
                         navigate(location.state || '/')
 
