@@ -6,23 +6,23 @@ import SocialLogin from './SocialLogin';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
 
-    const { createUser, setLoading, updateUserProfile } = useAuth()
+    const { createUser, updateUserProfile } = useAuth()
+
+    const axiosSecure = useAxiosSecure()
 
     const location = useLocation();
-
-    console.log(location);
 
     const navigate = useNavigate()
 
     const handelLogin = (data) => {
 
         createUser(data.email, data.password)
-
             .then(() => {
 
                 // <-----image hosting----->
@@ -39,6 +39,18 @@ const Register = () => {
                         toast.success('account created successfully')
 
                         const photoURL = res.data.data.url;
+
+                        //save user in the database
+
+                        const userInfo = {
+                            displayName: data.name,
+                            email: data.email,
+                            photoURL
+                        }
+                        axiosSecure.post('/users', userInfo)
+                            .then(res => {
+                                console.log(res.data);
+                            })
 
                         updateUserProfile({ displayName: data.name, photoURL })
                             .then(() => {

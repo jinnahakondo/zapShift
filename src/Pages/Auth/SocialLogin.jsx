@@ -2,9 +2,12 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate, } from 'react-router';
+import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 const SocialLogin = () => {
-    const { googleSignin, setLoading } = useAuth()
+    const { googleSignin } = useAuth()
+
+    const axiosSecure = useAxiosSecure()
 
     const location = useLocation()
 
@@ -12,10 +15,24 @@ const SocialLogin = () => {
     const navigate = useNavigate()
 
     const handelLogin = () => {
-        googleSignin().then(() => {
-            toast.success("logged in successfully")
-            navigate(location.state || '/')
-        })
+        googleSignin()
+            .then((data) => {
+                toast.success("logged in successfully")
+
+                //user set in data base
+                const userInfo = {
+                    displayName: data.displayName,
+                    email: data.email,
+                    photoURL: data.photoURL
+                }
+
+                axiosSecure.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                    })
+
+                navigate(location.state || '/')
+            })
             .catch(error => console.log(error.code))
     }
     return (

@@ -88,7 +88,7 @@ const MyParcel = () => {
                             <td>{p.Cost}</td>
                             <td>
                                 {p.PaymentStatus === "paid" ?
-                                    <button className='btn btn-success btn-sm' disabled>payed</button>
+                                    <button className='btn btn-success btn-sm' disabled>paid</button>
                                     :
                                     <button onClick={() => handelPayment(p)} className='btn btn-primary btn-sm text-black'>pay</button>}
                             </td>

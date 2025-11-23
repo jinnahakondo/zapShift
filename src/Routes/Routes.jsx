@@ -13,6 +13,7 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentSuccess from "../Pages/DashBoard/Payment/PaymentSuccess";
 import PaymentCancel from "../Pages/DashBoard/Payment/PaymentCancel";
+import PaymentHistory from "../Pages/DashBoard/Payment/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -87,8 +88,8 @@ export const router = createBrowserRouter([
                 Component: PaymentSuccess
             }
             , {
-                path: 'payment-canceld',
-                Component: PaymentCancel
+                path: 'payment-history',
+                Component: PaymentHistory
             }
         ]
     }
