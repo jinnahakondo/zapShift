@@ -5,7 +5,7 @@ import { useLocation, useNavigate, } from 'react-router';
 import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 const SocialLogin = () => {
-    const { googleSignin } = useAuth()
+    const { googleSignin, user } = useAuth()
 
     const axiosSecure = useAxiosSecure()
 
@@ -16,20 +16,18 @@ const SocialLogin = () => {
 
     const handelLogin = () => {
         googleSignin()
-            .then((data) => {
+            .then(async (data) => {
                 toast.success("logged in successfully")
-
+                console.log("from social login", data.user.displayName);
                 //user set in data base
                 const userInfo = {
-                    displayName: data.displayName,
-                    email: data.email,
-                    photoURL: data.photoURL
+                    displayName: data.user.displayName,
+                    email: data.user.email,
+                    photoURL: data.user.photoURL
                 }
 
-                axiosSecure.post('/users', userInfo)
-                    .then(res => {
-                        console.log(res.data);
-                    })
+                const res = await axiosSecure.post('/users', userInfo)
+                console.log(res.data);
 
                 navigate(location.state || '/')
             })

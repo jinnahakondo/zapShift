@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import { MdLocalShipping, MdOutlinePayment } from "react-icons/md";
+import { FaMotorcycle } from "react-icons/fa";
 
 const DashBoardLayout = () => {
     return (
@@ -50,6 +51,14 @@ const DashBoardLayout = () => {
                                 <span className="is-drawer-close:hidden"
 
                                 > Payment History</span></NavLink></li>
+                            <li><NavLink to={'/dashboard/riders'}
+                                data-tip="Rider"
+                                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                            >
+                                <FaMotorcycle />
+                                <span className="is-drawer-close:hidden"
+
+                                > Riders</span></NavLink></li>
 
                             {/* List item */}
                             <li>

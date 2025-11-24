@@ -14,6 +14,7 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentSuccess from "../Pages/DashBoard/Payment/PaymentSuccess";
 import PaymentCancel from "../Pages/DashBoard/Payment/PaymentCancel";
 import PaymentHistory from "../Pages/DashBoard/Payment/PaymentHistory";
+import Riders from "../Pages/DashBoard/Riders/Riders";
 
 export const router = createBrowserRouter([
     {
@@ -47,7 +48,8 @@ export const router = createBrowserRouter([
                 path: '/be-a-rider',
                 element: <PrivateRoutes>
                     <BeARider />
-                </PrivateRoutes>
+                </PrivateRoutes>,
+                loader: () => fetch('./warehouses.json')
             },
             {
                 path: '/covarage',
@@ -90,6 +92,10 @@ export const router = createBrowserRouter([
             , {
                 path: 'payment-history',
                 Component: PaymentHistory
+            }
+            , {
+                path: 'riders',
+                Component: Riders
             }
         ]
     }
