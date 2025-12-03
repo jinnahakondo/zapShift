@@ -7,14 +7,15 @@ import Testimonials from '../UsersTestimonials/Testimonials';
 import Featurs from './Featurs/Featurs';
 import FAQ from './FAQ/FAQ';
 import useAuth from '../../../Hooks/useAuth';
+import Loader from '../../../Components/Logo/Loader/Loader';
 
 
 
 const reviewsPromise = fetch('./reviews.json').then(res => res.json())
 const faqPromise = fetch('./faq.json').then(res => res.json())
 const Home = () => {
-    const { user } = useAuth()
-    // console.log(user);
+    const { loading } = useAuth()
+    if (loading) <Loader />
     return (
         <div>
             <div className='mt-9 space-y-24'>
@@ -23,10 +24,10 @@ const Home = () => {
                 <OurServices />
                 <Brands />
                 <Featurs />
-                <Suspense fallback={<p>loading...</p>}>
+                <Suspense fallback={<Loader />}>
                     <Testimonials reviewsPromise={reviewsPromise} />
                 </Suspense>
-                <Suspense fallback={<p>loading...</p>}>
+                <Suspense fallback={<Loader />}>
                     <FAQ faqPromise={faqPromise} />
                 </Suspense>
 

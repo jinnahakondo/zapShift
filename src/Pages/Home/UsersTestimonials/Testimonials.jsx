@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import TestimonialCard from './TestimonialCard';
 const Testimonials = ({ reviewsPromise }) => {
     const reviews = use(reviewsPromise)
-
+    console.log(reviews);
     return (
         <div>
             <Swiper

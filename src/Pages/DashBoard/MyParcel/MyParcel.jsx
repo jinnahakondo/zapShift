@@ -50,7 +50,8 @@ const MyParcel = () => {
             Cost: parcel.Cost,
             ParcelName: parcel.ParcelName,
             parcelId: parcel._id,
-            SenderEmail: parcel.SenderEmail
+            SenderEmail: parcel.SenderEmail,
+            trackingId: parcel.trackingId,
         }
         const res = await axiosSecure.post('/payment-checkout-session', paymentInfo)
         window.open(res.data.url, "_self");
@@ -72,6 +73,7 @@ const MyParcel = () => {
                             <td>Reciver District</td>
                             <td>Total Cost</td>
                             <td>Payment Status</td>
+                            <td>Tracking Id</td>
                             <td>Delevary Status</td>
                             <td>Actions</td>
                         </tr>
@@ -92,7 +94,10 @@ const MyParcel = () => {
                                     :
                                     <button onClick={() => handelPayment(p)} className='btn btn-primary btn-sm text-black'>pay</button>}
                             </td>
-                            <td></td>
+                            <td>
+                                <Link to={`/track-parcel/${p.trackingId}`}>{p.trackingId}</Link>
+                            </td>
+                            <td className='text-green-500'>{p.delevaryStatus}</td>
                             <td className='space-x-2'>
                                 <button className='btn '><FiEdit /></button>
                                 <button className='btn ' onClick={() => handelDelete(p._id)}><RiDeleteBack2Line />

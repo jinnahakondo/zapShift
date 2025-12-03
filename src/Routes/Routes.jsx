@@ -14,16 +14,28 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentSuccess from "../Pages/DashBoard/Payment/PaymentSuccess";
 import PaymentCancel from "../Pages/DashBoard/Payment/PaymentCancel";
 import PaymentHistory from "../Pages/DashBoard/Payment/PaymentHistory";
-import Riders from "../Pages/DashBoard/Riders/Riders";
+import ManageRiders from "../Pages/DashBoard/Riders/ManageRiders";
+import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
+import AdminRoutes from "./AdminRoutes";
+import Loader from "../Components/Logo/Loader/Loader";
+import AssignRider from "../Pages/DashBoard/Riders/AssignRider";
+import RiderRoute from "./RiderRoute";
+import AssignedDelivery from "../Pages/DashBoard/Riders/AssignedDelivery";
+import ErrorPage from "../Pages/Error/ErrorPage";
+import CompletedDelivres from "../Pages/DashBoard/Riders/CompletedDelivres";
+import TrcakParcel from "../Pages/TrackParcel";
+import DashboardHome from "../Pages/DashBoard/DashBoard HomePage/DashboardHome";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         Component: MainLayout,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
-                Component: Home
+                Component: Home,
+                hasErrorBoundary: Loader
             },
             {
                 path: '/services',
@@ -55,9 +67,14 @@ export const router = createBrowserRouter([
                 path: '/covarage',
                 Component: Covarage,
                 loader: () => fetch('./warehouses.json')
+            },
+            {
+                path: '/track-parcel/:trackingId',
+                Component: TrcakParcel
             }
         ]
     },
+
     {
         path: '/',
         Component: AuthLayout,
@@ -69,7 +86,8 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
-            }
+            },
+
         ]
     },
     {
@@ -78,6 +96,11 @@ export const router = createBrowserRouter([
             <DashBoardLayout />
         </PrivateRoutes>,
         children: [
+            {
+                index:true,
+                Component:DashboardHome
+            }
+            ,
             {
                 path: 'my-parcels',
                 Component: MyParcel
@@ -93,9 +116,40 @@ export const router = createBrowserRouter([
                 path: 'payment-history',
                 Component: PaymentHistory
             }
+
+            //addmin only routes
             , {
                 path: 'riders',
-                Component: Riders
+                element: <AdminRoutes>
+                    <ManageRiders />
+                </AdminRoutes>
+            }
+            , {
+                path: 'completed-delivry',
+                element: <AdminRoutes>
+                    <CompletedDelivres />
+                </AdminRoutes>
+            }
+            , {
+                path: 'assign-rider',
+                element: <AdminRoutes>
+                    <AssignRider />
+                </AdminRoutes>
+            }
+            , {
+                path: 'manage-users',
+                element: <AdminRoutes>
+                    <ManageUsers />
+                </AdminRoutes>
+            },
+
+            // rider only routes 
+
+            {
+                path: 'assigned-delevery',
+                element: <RiderRoute>
+                    <AssignedDelivery />
+                </RiderRoute>
             }
         ]
     }

@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router';
 import Arrow from '../../../../assets/arrowIcon.png';
 import useAuth from '../../../../Hooks/useAuth';
 import { toast } from 'react-toastify';
+import Loader from '../../../../Components/Logo/Loader/Loader';
 
 const NavBar = () => {
     const { loading, user, logOut } = useAuth()
@@ -26,7 +27,7 @@ const NavBar = () => {
 
     </>
 
-    if (loading) return <p>loading...</p>
+    if (loading) return <Loader/>
 
     return (
         <div className='pt-7'>

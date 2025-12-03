@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaCheckCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2'
 
-const Riders = () => {
+const ManageRiders = () => {
     const axiosSecure = useAxiosSecure()
 
     const { data: riders, refetch } = useQuery({
@@ -53,6 +53,7 @@ const Riders = () => {
         });
     }
 
+
     return (
         <div className='max-w-7xl mx-auto'>
             <h2 className='text-2xl font-extrabold mb-12'>Total Application: {riders?.length}</h2>
@@ -68,6 +69,7 @@ const Riders = () => {
                             <td>Nid</td>
                             <td>Region</td>
                             <td>Wirehouse</td>
+                            <td>WorkingStatus</td>
                             <td>Action</td>
                         </tr>
                     </thead>
@@ -80,14 +82,20 @@ const Riders = () => {
                             <td>{r?.nid}</td>
                             <td>{r?.region}</td>
                             <td>{r?.wirehouse}</td>
+                            <td>{r?.workingStatus}</td>
                             <td className='flex items-center gap-3'>
                                 {r?.status === "approved" ?
                                     <button className='btn btn-success disabled:bg-green-500 disabled:text-gray-700' disabled>Approved</button>
                                     :
-                                    <button onClick={() => { handelApprove(r) }} className='btn btn-primary text-black'><FaCheck /></button>
+
+                                    <button className='btn btn-success '
+                                        onClick={() => handelApprove(r)}
+                                    >Approve</button>
+
                                 }
 
                                 <button className='btn btn-error' onClick={() => handelDeleteRider(r._id)}><span className='text-black text-xl'><MdDelete /></span></button>
+
                             </td>
                         </tr>
                         )}
@@ -99,4 +107,4 @@ const Riders = () => {
     );
 };
 
-export default Riders;
+export default ManageRiders;

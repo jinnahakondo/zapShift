@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router';
 import SocialLogin from './SocialLogin';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
+import Loader from '../../Components/Logo/Loader/Loader';
 
 const Login = () => {
 
@@ -12,7 +13,7 @@ const Login = () => {
     const location = useLocation()
     const from = location.state || '/'
 
-    const { login, setLoading, user } = useAuth()
+    const { login, loading, user } = useAuth()
 
     const navigate = useNavigate()
 
@@ -24,7 +25,7 @@ const Login = () => {
             })
             .catch(error => console.log(error.code))
     }
-
+    if (loading) <Loader />
     if (user) return navigate(from)
 
     return (
